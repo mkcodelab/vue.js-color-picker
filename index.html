@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/vue@next"></script>
   <link rel="stylesheet" href="style.min.css">
-  <title>Color Picker</title>
+  <title>Color Picker 🌈⛏</title>
 </head>
 <body>
   <div id="app">
@@ -16,9 +16,9 @@
         <h1>Color<span>Picker</span></h1>
         <button @click="rgbaOn" class="btn" id="rgba" title="Red Green Blue Alpha">RGBA</button>
         <button @click="hslaOn" class="btn" id="hsla" title="Hue Saturation Lightness Alpha">HSLA</button>
-        <button @click="hexaOn" class="btn" id="hexa" title="Hexadecimal & alpha">HEXA</button>
+        <button @click="hexaOn" class="btn" id="hexa" title="Hexadecimal & Alpha, works with RGBA for now">HEXA</button>
       </nav>
-      
+      <!-- RGBA -->
       <div class="rgbaCard card" v-if="rgbaCard">
         <h1>RGBA</h1>
           <div class="ranges">
@@ -46,6 +46,7 @@
             </div>
           </div>
       </div>
+
       <!-- HSLA -->
       <div class="hslaCard card" v-if="hslaCard">
         <h1>HSLA</h1>
@@ -74,8 +75,14 @@
 
         </div>
       </div>
+      <!-- HEXADECIMAL -->
       <div class="hexaCard card" v-if="hexaCard">
         <h1>HEXA</h1>
+
+        <div class="output">
+          <div class="color-output-box" :style="{background: hexaVal}" id="hexaOutputBox"></div>
+          <p class="color-output" id="hexaOutput">{{hexaVal}}</p>
+        </div>
       </div>
     </div>
   </div>
