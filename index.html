@@ -24,19 +24,19 @@
           <div class="ranges">
             <!-- oninput ev, not change ev -->
             <div class="range-box">
-              <input type="range" @input="rgbUpdateVal" name="red" class="rangebar" id="rangeRed" min="0" max="255">
+              <input type="range" @input="rgbUpdateVal" name="red" v-model="rgba.r" class="rangebar" id="rangeRed" min="0" max="255">
               <label for="rangeRed" class="label rgblabel">{{rgba.r}}</label>
             </div>
             <div class="range-box">
-              <input type="range" @input="rgbUpdateVal" name="green" class="rangebar" id="rangeGreen" min="0" max="255">
+              <input type="range" @input="rgbUpdateVal" name="green" v-model="rgba.g" class="rangebar" id="rangeGreen" min="0" max="255">
               <label for="rangeGreen" class="label rgblabel">{{rgba.g}}</label>
             </div>
             <div class="range-box">
-              <input type="range" @input="rgbUpdateVal" name="blue" class="rangebar" id="rangeBlue" min="0" max="255">
+              <input type="range" @input="rgbUpdateVal" name="blue" v-model="rgba.b" class="rangebar" id="rangeBlue" min="0" max="255">
               <label for="rangeBlue" class="label rgblabel">{{rgba.b}}</label>
             </div>
             <div class="range-box">
-              <input type="range" @input="rgbUpdateVal" name="alpha" class="rangebar" id="rangeAlpha" min="0" max="1" step="0.01">
+              <input type="range" @input="rgbUpdateVal" name="alpha" v-model="rgba.a" class="rangebar" id="rangeAlpha" min="0" max="1" step="0.01">
               <label for="rangeAlpha" class="label rgblabel">{{rgba.a}}</label>
             </div>
             
