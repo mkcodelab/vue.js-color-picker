@@ -46,14 +46,36 @@ const app = Vue.createApp({
     },
     hexaUpdateVal() {
       // todo: add statements for 0 values
-      let rHex = parseInt(this.rgba.r).toString(16)
-      let gHex = parseInt(this.rgba.g).toString(16)
-      let bHex = parseInt(this.rgba.b).toString(16)
+      let rHex = parseInt(this.rgba.r)
+      let gHex = parseInt(this.rgba.g)
+      let bHex = parseInt(this.rgba.b)
       let aHex = parseFloat(this.rgba.a)
+      // red
+      if (rHex === 0){
+        rHex = '00'
+      } else {
+        rHex = parseInt(rHex).toString(16)
+      }
+      // green
+      if (gHex === 0) {
+        gHex = '00'
+      } else {
+        gHex = parseInt(gHex).toString(16)
+      }
+      // blue
+      if (bHex === 0) {
+        bHex = '00'
+      } else {
+        bHex = parseInt(bHex).toString(16)
+      }
+      // alpha
       if (aHex === 1) {
         // if alpha is 1, remove it
         aHex = ''
-      } else {
+      } else if (aHex === 0) {
+        aHex = '00'
+      }
+      else {
         // multiply decimal alpha by 255 to get 0 - 255 range, then convert to hex
         aHex = Math.floor(this.rgba.a * 255).toString(16)
       }
