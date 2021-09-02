@@ -19,7 +19,7 @@ const app = Vue.createApp({
       },
       rgbaVal: 'rgba(0, 0, 0, 0)',
       hslaVal: 'hsla(0, 0%, 0%, 0)',
-      hexaVal: '',
+      hexaVal: '#000000',
     
     }
   },
@@ -57,8 +57,11 @@ const app = Vue.createApp({
    
   },
   computed: {
-    createBackgroundString() {
-      return `linear-gradient(90deg, hsla(${this.hsla.h}, 0%, ${this.hsla.l}%), hsl(${this.hsla.h}, 100%, 50%))`;
+    createSatBgString() {
+      return `linear-gradient(90deg, hsl(${this.hsla.h}, 0%, ${this.hsla.l}%), hsl(${this.hsla.h}, 100%, 50%))`;
+    },
+    createAlphaBgString() {
+      return `linear-gradient(to right, transparent, hsl(${this.hsla.h}, ${this.hsla.s}%, ${this.hsla.l}%))`;
     }
   }
 })

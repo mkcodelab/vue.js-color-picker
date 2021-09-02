@@ -55,7 +55,7 @@
             <label for="rangeHue" class="label">{{hsla.h}}</label>
           </div>
           <div class="range-box">
-            <input type="range" @input="hslaUpdateVal" name="Saturation" :style="{backgroundImage: createBackgroundString}" v-model="hsla.s"  class="rangebar"  id="rangeSat" min="0" max="100">
+            <input type="range" @input="hslaUpdateVal" name="Saturation" :style="{backgroundImage: createSatBgString}" v-model="hsla.s"  class="rangebar"  id="rangeSat" min="0" max="100">
             <label for="rangeSat" class="label">{{hsla.s}}</label>
           </div>
           <div class="range-box">
@@ -63,7 +63,7 @@
             <label for="rangeLght" class="label">{{hsla.l}}</label>
           </div>
           <div class="range-box">
-            <input type="range" @input="hslaUpdateVal" name="Alpha" v-model="hsla.a" class="rangebar" id="rangeHSLAlpha" min="0" max="1" step="0.01">
+            <input type="range" @input="hslaUpdateVal" name="Alpha" :style="{backgroundImage: createAlphaBgString}" v-model="hsla.a" class="rangebar" id="rangeHSLAlpha" min="0" max="1" step="0.01">
             <label for="rangeHSLAlpha" class="label">{{hsla.a}}</label>
           </div>
 
