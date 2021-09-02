@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@next"></script>
+  <link rel="stylesheet" href="style.min.css">
+  <title>Color Picker</title>
+</head>
+<body>
+  <div id="app">
+   
+    <div class="picker">
+      <nav class="navbar">
+        <h1>Color<span>Picker</span></h1>
+        <button @click="rgbaOn" class="btn" id="rgba" title="Red Green Blue Alpha">RGBA</button>
+        <button @click="hslaOn" class="btn" id="hsla" title="Hue Saturation Lightness Alpha">HSLA</button>
+        <button @click="hexaOn" class="btn" id="hexa" title="Hexadecimal & alpha">HEXA</button>
+      </nav>
+      
+      <div class="rgbaCard card" v-if="rgbaCard">
+        <h1>RGBA</h1>
+          <div class="ranges">
+            <!-- oninput ev, not change ev -->
+            <div class="range-box">
+              <input type="range" @input="rgbUpdateVal" name="red" class="rangebar" id="rangeRed" min="0" max="255">
+              <label for="rangeRed" class="label rgblabel">{{rgba.r}}</label>
+            </div>
+            <div class="range-box">
+              <input type="range" @input="rgbUpdateVal" name="green" class="rangebar" id="rangeGreen" min="0" max="255">
+              <label for="rangeGreen" class="label rgblabel">{{rgba.g}}</label>
+            </div>
+            <div class="range-box">
+              <input type="range" @input="rgbUpdateVal" name="blue" class="rangebar" id="rangeBlue" min="0" max="255">
+              <label for="rangeBlue" class="label rgblabel">{{rgba.b}}</label>
+            </div>
+            <div class="range-box">
+              <input type="range" @input="rgbUpdateVal" name="alpha" class="rangebar" id="rangeAlpha" min="0" max="1" step="0.01">
+              <label for="rangeAlpha" class="label rgblabel">{{rgba.a}}</label>
+            </div>
+            
+            <div class="output">
+              <div class="color-output-box" :style="{background: rgbaVal}" id="rgbaOutputBox"></div>
+              <p class="color-output" id="rgbaOutput">{{rgbaVal}}</p>
+            </div>
+          </div>
+      </div>
+      <!-- HSLA -->
+      <div class="hslaCard card" v-if="hslaCard">
+        <h1>HSLA</h1>
+        <div class="ranges">
+          <div class="range-box">
+            <input type="range" @input="hslaUpdateVal" name="Hue" v-model="hsla.h" class="rangebar" id="rangeHue" min="0" max="360">
+            <label for="rangeHue" class="label">{{hsla.h}}</label>
+          </div>
+          <div class="range-box">
+            <input type="range" @input="hslaUpdateVal" name="Saturation" :style="{backgroundImage: createBackgroundString}" v-model="hsla.s"  class="rangebar"  id="rangeSat" min="0" max="100">
+            <label for="rangeSat" class="label">{{hsla.s}}</label>
+          </div>
+          <div class="range-box">
+            <input type="range" @input="hslaUpdateVal" name="Lightness" v-model="hsla.l" class="rangebar" id="rangeLght" min="0" max="100">
+            <label for="rangeLght" class="label">{{hsla.l}}</label>
+          </div>
+          <div class="range-box">
+            <input type="range" @input="hslaUpdateVal" name="Alpha" v-model="hsla.a" class="rangebar" id="rangeHSLAlpha" min="0" max="1" step="0.01">
+            <label for="rangeHSLAlpha" class="label">{{hsla.a}}</label>
+          </div>
+
+          <div class="output">
+            <div class="color-output-box" :style="{background: hslaVal}" id="hslaOutputBox"></div>
+            <p class="color-output" id="hslaOutput">{{hslaVal}}</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="hexaCard card" v-if="hexaCard">
+        <h1>HEXA</h1>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
